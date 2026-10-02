@@ -1,3 +1,33 @@
+# kocchi-lda
+
+**kocchi-lda** is a fork of [LDA++](https://github.com/angeloskath/supervised-lda) used by [Topicz](https://github.com/m-bou/topicz-scrapper) and [kocchi-classify](https://github.com/m-bou/kocchi-classify), the C++ topic-modelling stage that classifies Instagram profiles. It is a git submodule of topicz-scrapper at `modules/kocchi-lda`.
+
+## Why the fork
+
+kocchi-classify is written in **C++20** (it uses `std::format` and modern STL), but upstream LDA++ pinned `CMAKE_CXX_STANDARD 11` and no longer compiled cleanly with a modern GCC when built alongside it. The fork carries **one commit** (`6550c78`, "CMake c++ 17 support") that raises the standard to C++17 and adds two missing includes:
+
+```diff
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+-set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD 17)
+
+--- a/include/ldaplusplus/events/Events.hpp
++++ b/include/ldaplusplus/events/Events.hpp
+ #include <unordered_set>
+-
++#include <functional>
++#include <sstream>
+```
+
+Everything else is untouched upstream history.
+
+## Credits and license
+
+All of the LDA++ library is the work of **Angelos Katharopoulos** and **Despoina Paschalidou** (2016–2019). The upstream **MIT license** is kept. Related projects: [topicz-scrapper](https://github.com/m-bou/topicz-scrapper) (the main project) and [kocchi-classify](https://github.com/m-bou/kocchi-classify).
+
+---
+
 LDA++
 =====
 
