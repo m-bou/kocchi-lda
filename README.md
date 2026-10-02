@@ -1,5 +1,7 @@
 # kocchi-lda
 
+> ⚠️ **Deprecated, not used in production.** This fork is **not** what powers the current version of Kocchi. It is a historical project from 2023–2024, kept public only to show the approach I took back then (the crawl, the topic-modelling funnel and the engineering trade-offs). It is no longer maintained, the Instagram endpoints it depends on no longer work, and the current Kocchi uses a different, newer implementation.
+
 **kocchi-lda** is a fork of [LDA++](https://github.com/angeloskath/supervised-lda) used by [Topicz](https://github.com/m-bou/topicz-scrapper) and [kocchi-classify](https://github.com/m-bou/kocchi-classify), the C++ topic-modelling stage that classifies Instagram profiles. It is a git submodule of topicz-scrapper at `modules/kocchi-lda`.
 
 ## Why the fork
